@@ -20,7 +20,13 @@ class SimpleDB {
 
   //get
   get(id) {
-    const readIt = readFile(this.newFolder, newId);
+    //read the file name that matches the id
+    const readIt = readFile(this.newFile, 'utf-8');
+    //parse the file
+    //return the parsed file
+    const newFile = `${id}.json`;
+    this.newFolder = path.join(rootDir, newFile);
+    return JSON.parse(newFolder);
   }
 }
 //write file for saving
