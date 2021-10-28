@@ -11,14 +11,16 @@ class SimpleDB {
   //save
   save(newObject) {
     //add the id to the new object
-    console.log(newObject);
     const newId = shortid.generate();
     newObject.id = newId;
-    console.log(newObject);
     //stringify the new object (stringy object instead of newObject)
     const stringyObj = JSON.stringify(newObject);
-    //const readIt = readFile(this.newFolder, newId);
     return writeFile(this.newFolder, stringyObj);
+  }
+
+  //get
+  get(id) {
+    const readIt = readFile(this.newFolder, newId);
   }
 }
 //write file for saving

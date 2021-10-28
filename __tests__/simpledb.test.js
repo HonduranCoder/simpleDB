@@ -27,4 +27,11 @@ describe('SimpleDB', () => {
         .then(() => expect(newObject.id).toEqual(expect.any(String)))
     );
   });
+  it('should get id', () => {
+    const firstDb = new SimpleDB(rootDir);
+    const newId = newObject.id;
+    return firstDb
+      .save(newId)
+      .then(() => expect(newId).toEqual(expect.any(Number)));
+  });
 });
