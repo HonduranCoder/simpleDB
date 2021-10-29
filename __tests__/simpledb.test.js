@@ -28,10 +28,38 @@ describe('SimpleDB', () => {
     );
   });
   it('should get id', () => {
-    const firstDb = new SimpleDB(rootDir);
-    const newId = newObject.id;
-    return firstDb
-      .save(newId)
-      .then(() => expect(newId).toEqual(expect.any(Number)));
+    const newObject = { text: 'Hello world' };
+    const simpleDB = new SimpleDB(rootDir);
+    //save an object & get by id like line 23
+    return simpleDB
+      .save(newObject)
+      .then(console.log(newObject.id))
+      .then(() => simpleDB.get(newObject.id))
+      .then((file) => expect(file).toEqual(expect.any(Object)));
+    //.then with getbyid function
+    //.then with the expect
+  });
+  it('should return all files', () => {
+    const simpleDB = new SimpleDB(rootDir);
+    const firsNew = { text: 'first' };
+    const secondOld = { text: 'second' };
+    const expectation = [
+      {
+        id: expect.any(String),
+        text: expect.any(String),
+      },
+      {
+        id: expect.any(String),
+        text: expect.any(String),
+      },
+    ];
+    //save at least two files
+    return simpleDB
+      .save(firsNew)
+      .then(() => simpleDB.save(secondOld))
+      .then(() => simpleDB.getAll())
+      .then((files) => expect(files).toEqual(expectation));
+    //call get(all) function
+    //expectation -> array w/an object for each of the files
   });
 });
