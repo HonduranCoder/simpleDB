@@ -50,6 +50,7 @@ class SimpleDB {
         return readFile(this.file, 'utf-8').then((file) => JSON.parse(file));
       })
     );
+
     return parsedFiles;
   }
 }
