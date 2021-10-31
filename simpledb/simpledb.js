@@ -37,6 +37,7 @@ class SimpleDB {
       throw error;
     });
   }
+
   //getAll()
   async getAll() {
     //got all the files in thje directory
