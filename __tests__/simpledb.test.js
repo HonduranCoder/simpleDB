@@ -27,6 +27,7 @@ describe('SimpleDB', () => {
         .then(() => expect(newObject.id).toEqual(expect.any(String)))
     );
   });
+
   it('should get id', () => {
     const newObject = { text: 'Hello world' };
     const simpleDB = new SimpleDB(rootDir);
@@ -39,6 +40,7 @@ describe('SimpleDB', () => {
     //.then with getbyid function
     //.then with the expect
   });
+
   it('should return all files', () => {
     const simpleDB = new SimpleDB(rootDir);
     const firsNew = { text: 'first' };

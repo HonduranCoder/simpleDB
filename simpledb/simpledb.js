@@ -37,6 +37,7 @@ class SimpleDB {
       throw error;
     });
   }
+
   //getAll()
   async getAll() {
     //got all the files in thje directory
@@ -49,6 +50,7 @@ class SimpleDB {
         return readFile(this.file, 'utf-8').then((file) => JSON.parse(file));
       })
     );
+
     return parsedFiles;
   }
 }
